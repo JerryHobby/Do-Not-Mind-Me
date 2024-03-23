@@ -26,6 +26,10 @@ func get_input() -> void:
 	if Input.is_action_just_pressed("God Mode"):
 		GameManager.set_god_mode(!GameManager.get_god_mode())
 
+	if Input.is_action_just_pressed("pause"):
+		GameManager.set_pause(!GameManager.get_pause())
+
+
 
 
 func on_debug() -> void:

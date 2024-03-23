@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmgctqegu1uy4"]
 
-[ext_resource type="Script" path="res://Scenes/debug_label.gd" id="1_5k477"]
+[ext_resource type="Script" path="res://Scenes/hud_menu.gd" id="1_vslyw"]
 [ext_resource type="LabelSettings" uid="uid://7ie7kstfk3rm" path="res://debug_label.tres" id="2_2ba7d"]
 
 [node name="Hud Menu" type="Node2D"]
-script = ExtResource("1_5k477")
+script = ExtResource("1_vslyw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -131.0
+offset_left = -150.0
 offset_bottom = 120.0
 grow_horizontal = 0
 size_flags_horizontal = 3
@@ -28,31 +28,31 @@ offset_bottom = 44.0
 grow_vertical = 2
 theme_override_constants/separation = -2
 
-[node name="Label1" type="Label" parent="ColorRect/HBoxContainer"]
+[node name="MusicLabel" type="Label" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "(M)usic"
 label_settings = ExtResource("2_2ba7d")
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="ColorRect/HBoxContainer"]
+[node name="SoundLabel" type="Label" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "(S)ound"
 label_settings = ExtResource("2_2ba7d")
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="ColorRect/HBoxContainer"]
+[node name="DebugLabel" type="Label" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "(D)ebug"
 label_settings = ExtResource("2_2ba7d")
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="ColorRect/HBoxContainer"]
+[node name="PauseLabel" type="Label" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "(P)ause"
 label_settings = ExtResource("2_2ba7d")
 vertical_alignment = 1
 
-[node name="Label5" type="Label" parent="ColorRect/HBoxContainer"]
+[node name="GodModeLabel" type="Label" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "(G)od Mode"
 label_settings = ExtResource("2_2ba7d")

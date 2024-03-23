@@ -1,11 +1,5 @@
 res://Scenes/level_map.tscn
+res://debug_label.tres
 res://Scenes/Enemies/npc.tscn
 res://Scenes/debug_label.tscn
-res://Scenes/debug_label.gd
-res://debug_label.tres
-res://Singletons/GameManager.gd
-res://Singletons/SignalManager.gd
-res://Singletons/SoundManager.gd
-res://Scenes/level_map.gd
 res://Scenes/Enemies/npc.gd
-res://Scenes/hud_menu.tscn

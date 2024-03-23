@@ -19,7 +19,7 @@ shape = SubResource("CapsuleShape2D_ois42")
 position = Vector2(9, 0)
 texture = ExtResource("1_pjk2l")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
 
 [node name="DebugLabel" parent="." instance=ExtResource("2_vq17w")]
 position = Vector2(0, -23)
