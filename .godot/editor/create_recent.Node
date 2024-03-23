@@ -1,1 +1,11 @@
+VBoxContainer
+HBoxContainer
+ColorRect
+Node2D
+Label
+NavigationAgent2D
+Sprite2D
+CollisionShape2D
+CharacterBody2D
+Camera2D
 TileMap
