@@ -3,17 +3,46 @@ extends CharacterBody2D
 @onready var sprite_2d = $Sprite2D
 @onready var nav_agent = $NavAgent
 
+@export var patrol_points:NodePath
+
+var _waypoints:Array = []
+var _current_waypoint:int = 0
+
 
 func _ready():
+	set_physics_process(false)
+	create_waypoints()
+	call_deferred("set_physics_process", true)
 	SignalManager.on_debug.connect(on_debug)
 	on_debug()
 
-func _physics_process(delta):	
+
+func _physics_process(_delta):	
 	if Input.is_action_pressed("set_target"):
 		nav_agent.target_position = get_global_mouse_position()
 		
 	update_navigation()
+	process_patrolling()
 	set_labels()
+
+
+func create_waypoints() -> void:
+	for pp in get_node(patrol_points).get_children():
+		_waypoints.append(pp.global_position)
+
+
+
+func navigate_to_waypoint() -> void:
+	if _current_waypoint >= len(_waypoints):
+		_current_waypoint = 0
+
+	nav_agent.target_position = _waypoints[_current_waypoint]
+	_current_waypoint += 1
+
+
+func process_patrolling() -> void:
+	if nav_agent.is_navigation_finished():
+		navigate_to_waypoint()
 
 
 func update_navigation() -> void:

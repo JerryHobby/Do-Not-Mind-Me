@@ -3,3 +3,9 @@ res://debug_label.tres
 res://Scenes/Enemies/npc.tscn
 res://Scenes/debug_label.tscn
 res://Scenes/Enemies/npc.gd
+res://Singletons/GameManager.gd
+res://Scenes/level_map.gd
+res://Scenes/waypoint.tscn
+res://Scenes/waypoint.gd
+res://Scenes/Player/player.tscn
+res://Scenes/Player/player.gd

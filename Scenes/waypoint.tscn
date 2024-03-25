@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ciwo6ly0pnw"]
+
+[ext_resource type="Texture2D" uid="uid://dgstq66s7cq0o" path="res://assets/images/waypoint.png" id="1_hq2ip"]
+[ext_resource type="Script" path="res://Scenes/waypoint.gd" id="1_p1vmp"]
+
+[node name="Waypoint" type="Marker2D"]
+script = ExtResource("1_p1vmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_hq2ip")

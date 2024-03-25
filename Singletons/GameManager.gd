@@ -1,7 +1,12 @@
 extends Node
 
+const GROUP_PLAYER = "player"
+const GROUP_BULLET = "bullet"
+const GROUP_NPC = "npc"
 
-const NPC_SPEED:float = 200.0
+
+const NPC_SPEED:float = 350.0
+const PLAYER_SPEED:float = 350.0
 
 var _debug:bool = true
 var _music:bool = false

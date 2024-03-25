@@ -4,22 +4,24 @@
 [ext_resource type="Script" path="res://Scenes/Enemies/npc.gd" id="1_pw7ky"]
 [ext_resource type="PackedScene" uid="uid://bbuwktmewxico" path="res://Scenes/debug_label.tscn" id="2_vq17w"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ois42"]
-radius = 13.8889
-height = 27.7778
+[sub_resource type="CircleShape2D" id="CircleShape2D_un4i8"]
 
-[node name="NPC" type="CharacterBody2D"]
+[node name="NPC" type="CharacterBody2D" groups=["npc"]]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_pw7ky")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.04, 1.44)
-shape = SubResource("CapsuleShape2D_ois42")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9, 0)
 texture = ExtResource("1_pjk2l")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["npc"]]
+scale = Vector2(1.75, 1.75)
+shape = SubResource("CircleShape2D_un4i8")
+
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+target_desired_distance = 20.0
 
 [node name="DebugLabel" parent="." instance=ExtResource("2_vq17w")]
 position = Vector2(0, -23)
