@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqvhxw4hle530"]
+[gd_scene load_steps=6 format=3 uid="uid://dqvhxw4hle530"]
 
 [ext_resource type="Texture2D" uid="uid://cad30w4mans1l" path="res://assets/images/soldier1_gun.png" id="1_pjk2l"]
 [ext_resource type="Script" path="res://Scenes/Enemies/npc.gd" id="1_pw7ky"]
 [ext_resource type="PackedScene" uid="uid://bbuwktmewxico" path="res://Scenes/debug_label.tscn" id="2_vq17w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_un4i8"]
+
+[sub_resource type="Curve" id="Curve_u5i0n"]
+_data = [Vector2(0, 0), 0.0, 1.21531, 0, 0, Vector2(1, 1), 0.956616, 0.0, 0, 0]
+point_count = 2
 
 [node name="NPC" type="CharacterBody2D" groups=["npc"]]
 collision_layer = 8
@@ -25,3 +29,17 @@ target_desired_distance = 20.0
 
 [node name="DebugLabel" parent="." instance=ExtResource("2_vq17w")]
 position = Vector2(0, -23)
+
+[node name="PlayerDetector" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="PlayerDetector"]
+rotation = -1.5708
+target_position = Vector2(2.08165e-12, 800)
+collision_mask = 5
+
+[node name="Line2D" type="Line2D" parent="PlayerDetector"]
+rotation = -1.5708
+points = PackedVector2Array(0, 0, 2.08165e-12, 200)
+width = 40.0
+width_curve = SubResource("Curve_u5i0n")
+default_color = Color(0, 0, 1, 0.113725)

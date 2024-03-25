@@ -4,9 +4,9 @@ const GROUP_PLAYER = "player"
 const GROUP_BULLET = "bullet"
 const GROUP_NPC = "npc"
 
-
-const NPC_SPEED:float = 350.0
-const PLAYER_SPEED:float = 350.0
+const NPC_SPEED:float = 250.0
+const PLAYER_SPEED:float = 250.0
+const NPC_SIGHT_RANGE:float = 300.0
 
 var _debug:bool = true
 var _music:bool = false
@@ -61,6 +61,8 @@ func get_pause() -> bool:
 
 func set_pause(v:bool) -> void:
 	_pause = v
+	get_tree().paused = _pause
+	
 	SignalManager.on_pause.emit()
 	if _debug:
 		print("Pause: ", _pause)

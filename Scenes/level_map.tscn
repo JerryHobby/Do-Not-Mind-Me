@@ -463,6 +463,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 25.0
 
 [node name="LevelMap" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_4fagv")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -724,6 +725,7 @@ color = Color(1, 0, 1, 0.454902)
 polygon = PackedVector2Array(3009, 2047, 3010, 2304, 3072, 2304, 3073, 2112, 3329, 2112, 3329, 2304, 3393, 2304, 3393, 2048)
 
 [node name="NPC1" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC1" instance=ExtResource("7_kpmlg")]
 position = Vector2(703, 393)
@@ -747,6 +749,7 @@ position = Vector2(125, 859)
 position = Vector2(376, 523)
 
 [node name="NPC2" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC2" instance=ExtResource("7_kpmlg")]
 position = Vector2(1518, 393)
@@ -762,6 +765,7 @@ position = Vector2(754, 146)
 position = Vector2(74, 1241)
 
 [node name="NPC3" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC3" instance=ExtResource("7_kpmlg")]
 position = Vector2(860, 1484)
@@ -780,6 +784,7 @@ position = Vector2(-457, 1390)
 position = Vector2(-626, 1666)
 
 [node name="NPC4" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC4" instance=ExtResource("7_kpmlg")]
 position = Vector2(1983, 132)
@@ -804,6 +809,7 @@ position = Vector2(1623, 420)
 position = Vector2(1983, 148)
 
 [node name="NPC5" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC5" instance=ExtResource("7_kpmlg")]
 position = Vector2(2032, 1277)
@@ -828,6 +834,7 @@ position = Vector2(1361, 2486)
 position = Vector2(1788, 2498)
 
 [node name="NPC6" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC6" instance=ExtResource("7_kpmlg")]
 position = Vector2(1684, 1377)
@@ -852,6 +859,7 @@ position = Vector2(194, 2808)
 position = Vector2(430, 1384)
 
 [node name="NPC7" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC7" instance=ExtResource("7_kpmlg")]
 position = Vector2(237, 2085)
@@ -876,6 +884,7 @@ position = Vector2(376, 1538)
 position = Vector2(201, 2722)
 
 [node name="NPC8" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC8" instance=ExtResource("7_kpmlg")]
 position = Vector2(3155, 1508)
@@ -900,6 +909,7 @@ position = Vector2(3327, 2219)
 position = Vector2(3060, 1011)
 
 [node name="NPC9" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="NPC" parent="NPC9" instance=ExtResource("7_kpmlg")]
 position = Vector2(4722, 1521)
@@ -927,6 +937,7 @@ position = Vector2(2850, 2800)
 position = Vector2(3056, 2409)
 
 [node name="NPC10" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(-113, -1001)
 
 [node name="NPC" parent="NPC10" instance=ExtResource("7_kpmlg")]
@@ -955,6 +966,7 @@ position = Vector2(3143, 1302)
 position = Vector2(3895, 1752)
 
 [node name="NPC11" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(-91, 51)
 
 [node name="NPC" parent="NPC11" instance=ExtResource("7_kpmlg")]
@@ -974,6 +986,7 @@ position = Vector2(3147, 1632)
 position = Vector2(2323, 1217)
 
 [node name="NPC12" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(-2528, 972)
 
 [node name="NPC" parent="NPC12" instance=ExtResource("7_kpmlg")]
@@ -996,6 +1009,7 @@ position = Vector2(3444, 749)
 position = Vector2(4536, 1552)
 
 [node name="NPC13" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(-3602, -153)
 
 [node name="NPC" parent="NPC13" instance=ExtResource("7_kpmlg")]
@@ -1018,6 +1032,7 @@ position = Vector2(3384, 1082)
 position = Vector2(4010, 647)
 
 [node name="NPC14" type="Node2D" parent="."]
+process_mode = 1
 position = Vector2(-2532, -375)
 
 [node name="NPC" parent="NPC14" instance=ExtResource("7_kpmlg")]
@@ -1040,6 +1055,7 @@ position = Vector2(3766, 1379)
 position = Vector2(4771, 1273)
 
 [node name="Player" parent="." instance=ExtResource("10_uajw1")]
+process_mode = 1
 position = Vector2(298, 316)
 
 [node name="Camera2D" type="Camera2D" parent="."]
