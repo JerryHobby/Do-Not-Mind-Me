@@ -13,7 +13,7 @@ config_version=5
 config/name="Do Not Mind Me"
 run/main_scene="res://Scenes/level_map.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://survivor1_gun.png"
 
 [autoload]
 

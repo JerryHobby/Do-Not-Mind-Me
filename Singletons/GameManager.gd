@@ -4,9 +4,15 @@ const GROUP_PLAYER = "player"
 const GROUP_BULLET = "bullet"
 const GROUP_NPC = "npc"
 
-const NPC_SPEED:float = 250.0
+const NPC_SPEED_WALK:float = 40
+const NPC_SPEED_RUN:float = 75
+const NPC_FOV_WALK:float = 90
+const NPC_FOV_RUN:float = 180
+const NPC_SIGHT_RANGE_WALK:float = 300.0
+const NPC_SIGHT_RANGE_RUN:float = 500.0
+
 const PLAYER_SPEED:float = 250.0
-const NPC_SIGHT_RANGE:float = 300.0
+
 
 var _debug:bool = true
 var _music:bool = false

@@ -4,6 +4,7 @@ extends Node2D
 @onready var debug_label = $ColorRect/HBoxContainer/DebugLabel
 @onready var pause_label = $ColorRect/HBoxContainer/PauseLabel
 @onready var god_mode_label = $ColorRect/HBoxContainer/GodModeLabel
+@onready var camera_2d = $".."
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,5 +30,9 @@ func set_labels():
 	music_label.text = "(M)usic: %s" % musicstate
 	pause_label.text = "(P)ause: %s" % pausestate
 	god_mode_label.text = "(G)od Mode: %s" % godmodestate
-	
-	
+	#
+	#position = get_viewport_rect().size
+	#position.x /= 2
+	#position.y /= -2
+	#print("HUD p: %s / rect: %s" % [position, get_viewport_rect().size] )
+

@@ -5,3 +5,4 @@ res://Scenes/Player/player.tscn
 res://Scenes/Enemies/npc.gd
 res://Singletons/GameManager.gd
 res://Scenes/level_map.gd
+res://Scenes/hud_menu.gd

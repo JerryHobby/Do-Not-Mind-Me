@@ -1,7 +1,7 @@
+Sprite2D
 Line2D
 Node2D
 RayCast2D
-Sprite2D
 CollisionShape2D
 CharacterBody2D
 Marker2D
@@ -12,4 +12,3 @@ HBoxContainer
 ColorRect
 Label
 NavigationAgent2D
-Camera2D
