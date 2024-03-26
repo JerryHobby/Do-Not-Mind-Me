@@ -6,3 +6,11 @@ res://Scenes/Enemies/npc.gd
 res://Singletons/GameManager.gd
 res://Scenes/level_map.gd
 res://Scenes/hud_menu.gd
+res://Scenes/Player/player.gd
+res://Singletons/SoundManager.gd
+res://Scenes/pick_up.tscn
+res://Scenes/pick_up.gd
+res://Singletons/SignalManager.gd
+res://Scenes/hud.tscn
+res://Scenes/hud.gd
+res://Singletons/ScoreManager.gd

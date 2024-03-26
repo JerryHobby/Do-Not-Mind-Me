@@ -3,22 +3,30 @@ extends Node
 const GROUP_PLAYER = "player"
 const GROUP_BULLET = "bullet"
 const GROUP_NPC = "npc"
+const GROUP_PICKUP = "pickup"
 
-const NPC_SPEED_WALK:float = 40
-const NPC_SPEED_RUN:float = 75
-const NPC_FOV_WALK:float = 90
-const NPC_FOV_RUN:float = 180
-const NPC_SIGHT_RANGE_WALK:float = 300.0
-const NPC_SIGHT_RANGE_RUN:float = 500.0
+const NPC_SPEED_PATROLLING:float = 60
+const NPC_SPEED_CHASING:float = 100
+const NPC_SPEED_SEARCHING:float = 80
 
-const PLAYER_SPEED:float = 250.0
+const NPC_FOV_PATROLLING:float = 60
+const NPC_FOV_CHASING:float = 120
+const NPC_FOV_SEARCHING:float = 100
+
+const NPC_SIGHT_RANGE_PATROLLING:float = 300.0
+const NPC_SIGHT_RANGE_CHASING:float = 500.0
+const NPC_SIGHT_RANGE_SEARCHING:float = 500.0
+
+const PLAYER_SPEED:float = 150.0
 
 
 var _debug:bool = true
 var _music:bool = false
-var _sound:bool = false
+var _sound:bool = true
 var _god_mode:bool = false
 var _pause:bool = false
+var _help:bool = false
+
 
 #####
 func set_debug(v:bool) -> void:
@@ -72,6 +80,19 @@ func set_pause(v:bool) -> void:
 	SignalManager.on_pause.emit()
 	if _debug:
 		print("Pause: ", _pause)
+
+
+#####
+func get_help() -> bool:
+	return _help
+
+
+func set_help(v:bool) -> void:
+	_help = v
+	
+	SignalManager.on_help.emit()
+	if _debug:
+		print("Help: ", _help)
 
 
 

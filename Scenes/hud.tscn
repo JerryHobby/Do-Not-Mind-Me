@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctk2sgyyae5wq"]
+
+[ext_resource type="FontFile" uid="uid://cs8whudopcgc" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="1_dov7f"]
+[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_xdksu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_skmad"]
+font = ExtResource("1_dov7f")
+font_size = 30
+
+[node name="hud" type="CanvasLayer"]
+script = ExtResource("1_xdksu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.384314)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Score: 00000"
+label_settings = SubResource("LabelSettings_skmad")
+vertical_alignment = 1
+
+[node name="PickupsLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_skmad")
+horizontal_alignment = 2
+vertical_alignment = 1

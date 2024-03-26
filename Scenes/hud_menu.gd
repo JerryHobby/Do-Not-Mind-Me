@@ -15,6 +15,7 @@ func _ready():
 	SignalManager.on_sound.connect(set_labels)
 	SignalManager.on_god_mode.connect(set_labels)
 	SignalManager.on_pause.connect(set_labels)
+	SignalManager.on_help.connect(on_help)
 
 
 func set_labels():
@@ -30,9 +31,10 @@ func set_labels():
 	music_label.text = "(M)usic: %s" % musicstate
 	pause_label.text = "(P)ause: %s" % pausestate
 	god_mode_label.text = "(G)od Mode: %s" % godmodestate
-	#
-	#position = get_viewport_rect().size
-	#position.x /= 2
-	#position.y /= -2
-	#print("HUD p: %s / rect: %s" % [position, get_viewport_rect().size] )
 
+
+func on_help() -> void:
+	if GameManager.get_help():
+		show()
+	else:
+		hide()

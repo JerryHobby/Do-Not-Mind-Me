@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 @onready var camera_2d = $"../Camera2D"
+@onready var sound = $sound
 
 
 
@@ -27,5 +28,5 @@ func get_input():
 	new_velocity.y = Input.get_action_strength("down") \
 	 - Input.get_action_strength("up")
 	
-	velocity = new_velocity.normalized() * GameManager.PLAYER_SPEED
+	velocity = new_velocity.normalized() * GameManager.PLAYER_SPEED * 2
 	
