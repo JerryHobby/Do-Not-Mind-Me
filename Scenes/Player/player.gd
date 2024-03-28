@@ -35,4 +35,4 @@ func get_input():
 	else:
 		animated_sprite_2d.speed_scale = 1
 
-	velocity = new_velocity.normalized() * GameManager.PLAYER_SPEED * 2
+	velocity = new_velocity.normalized() * GameManager.PLAYER_SPEED

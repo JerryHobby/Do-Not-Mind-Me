@@ -19,6 +19,7 @@ class_name Npc
 const BULLET = preload("res://Scenes/bullet.tscn")
 enum ENEMY_STATE { PATROLLING, CHASING, SEARCHING}
 
+var _first_pass = true
 
 var FOV = {
 	ENEMY_STATE.PATROLLING: GameManager.NPC_FOV_PATROLLING,
@@ -52,14 +53,15 @@ var _state:ENEMY_STATE = ENEMY_STATE.PATROLLING
 
 func _ready():
 	set_physics_process(false)
-	create_waypoints()
-	
+	call_deferred("create_waypoints")
+
 	shoot_timer.wait_time = GameManager.NPC_SHOOT_DELAY
 	shoot_timer.start()
 	_player_ref = get_tree().get_first_node_in_group(GameManager.GROUP_PLAYER)
-	call_deferred("set_physics_process", true)
+
 	SignalManager.on_debug.connect(on_debug)
-	on_debug()
+	call_deferred("on_debug")
+	call_deferred("set_physics_process", true)
 
 
 func set_target_range(v:float) -> void:
@@ -67,11 +69,11 @@ func set_target_range(v:float) -> void:
 	line_2d.points[1].y = v
 
 
-func _physics_process(_delta):	
+func _physics_process(_delta):
+	
 	if Input.is_action_pressed("set_target"):
 		set_state(ENEMY_STATE.CHASING)
 		
-	update_navigation()
 	raycast_to_player()
 	update_state()
 	update_movement()
@@ -93,16 +95,19 @@ func set_nav_to_player() -> void:
 
 
 func alert(new_state) -> void:
-	if new_state == ENEMY_STATE.CHASING and _state == ENEMY_STATE.PATROLLING:
+	
+	if new_state == ENEMY_STATE.CHASING:
+		if _state == ENEMY_STATE.PATROLLING:
+			SoundManager.play_gasp(sound)
+			
 		animation_player.play("alert")
 		warning.show()
-		SoundManager.play_gasp(sound)
 
-	if new_state == ENEMY_STATE.CHASING and _state == ENEMY_STATE.SEARCHING:
-		animation_player.play("alert")
+	elif new_state == ENEMY_STATE.SEARCHING:
+		animation_player.play("RESET")
 		warning.show()
 
-	if new_state == ENEMY_STATE.PATROLLING:
+	elif new_state == ENEMY_STATE.PATROLLING:
 		animation_player.play("RESET")
 		warning.hide()
 
@@ -197,6 +202,10 @@ func navigate_to_waypoint() -> void:
 
 
 func update_navigation() -> void:
+	if _first_pass:
+		await get_tree().process_frame
+		_first_pass = false
+	
 	if nav_agent.is_navigation_finished():
 		return
 		
@@ -220,6 +229,9 @@ func on_debug() -> void:
 
 
 func set_labels() -> void:
+	if _first_pass:
+		await get_tree().process_frame
+
 	#var done = "DONE: %s" % nav_agent.is_navigation_finished()
 	var reach = "REACH: %s" % nav_agent.is_target_reachable()
 	var reached = "REACHED: %s" % nav_agent.is_target_reached()

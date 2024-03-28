@@ -21,10 +21,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 4.0
-offset_top = -44.0
-offset_right = 54.0
-offset_bottom = 44.0
+offset_left = 6.0
+offset_top = -61.0
+offset_right = 97.0
+offset_bottom = 61.0
 grow_vertical = 2
 theme_override_constants/separation = -2
 
@@ -55,5 +55,11 @@ vertical_alignment = 1
 [node name="GodModeLabel" type="Label" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "(G)od Mode"
+label_settings = ExtResource("2_2ba7d")
+vertical_alignment = 1
+
+[node name="HelpLabel" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "(H)ide Menu"
 label_settings = ExtResource("2_2ba7d")
 vertical_alignment = 1

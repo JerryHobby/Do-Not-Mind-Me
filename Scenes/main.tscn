@@ -1,50 +1,96 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn3ppmboiooc3"]
+[gd_scene load_steps=8 format=3 uid="uid://bn3ppmboiooc3"]
 
-[ext_resource type="PackedScene" uid="uid://ctk2sgyyae5wq" path="res://Scenes/hud.tscn" id="1_f6u3y"]
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_vj2eh"]
 [ext_resource type="FontFile" uid="uid://b2dascen23qld" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_re366"]
+[ext_resource type="FontFile" uid="uid://cs8whudopcgc" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="3_2cwkm"]
+[ext_resource type="Texture2D" uid="uid://j86bl84pce5m" path="res://assets/images/spyguy.png" id="3_acvt1"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_eykvi"]
+[sub_resource type="LabelSettings" id="LabelSettings_4i4q0"]
 font = ExtResource("2_re366")
-font_size = 96
+font_size = 120
+font_color = Color(1, 0.235294, 0.470588, 1)
+outline_size = 17
 
-[sub_resource type="LabelSettings" id="LabelSettings_jto66"]
+[sub_resource type="LabelSettings" id="LabelSettings_5ivla"]
 font = ExtResource("2_re366")
-font_size = 60
-font_color = Color(1, 0.494118, 0.521569, 1)
+font_size = 50
+font_color = Color(1, 0.784314, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qsbex"]
+line_spacing = -9.0
+font = ExtResource("3_2cwkm")
+font_size = 30
 
 [node name="Main" type="Node2D"]
-process_mode = 3
+position = Vector2(0, 2)
 script = ExtResource("1_vj2eh")
-
-[node name="hud" parent="." instance=ExtResource("1_f6u3y")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -241.0
-offset_right = 241.0
+offset_top = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 40
+color = Color(0, 0.121569, 0.270588, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 10
-text = "GAME OVER"
-label_settings = SubResource("LabelSettings_eykvi")
-horizontal_alignment = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -458.5
+offset_top = -266.5
+offset_right = 458.5
+offset_bottom = 266.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
 
-[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="Title" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 2
-text = "Press Space to Play Again"
-label_settings = SubResource("LabelSettings_jto66")
+text = "Do Not Mind Me!"
+label_settings = SubResource("LabelSettings_4i4q0")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressFire" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Press SPACE to Begin"
+label_settings = SubResource("LabelSettings_5ivla")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="ColorRect" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 120)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="SpyGuy" type="Sprite2D" parent="CanvasLayer/VBoxContainer"]
+position = Vector2(872.5, 255.5)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_acvt1")
+
+[node name="Instructions" type="Label" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Your mission, if you choose to accept it:
+
+Find all the top secret documents without getting shot.  
+You will be unarmed.  Stealth is the key.
+
+Once you find all the documents, find the exit point and escape."
+label_settings = SubResource("LabelSettings_qsbex")
+autowrap_mode = 3

@@ -33,9 +33,9 @@ func on_elapsed_time(seconds:float) -> void:
 func seconds_to_string() -> String:
 	var elapsed_seconds = int(_elapsed_time)
 	
-	var seconds = int(elapsed_seconds) % 60
-	var minutes = (elapsed_seconds / 60) % 60
-	var hours = (elapsed_seconds/ 60) / 60
+	var seconds:int = int(elapsed_seconds) % 60
+	var minutes:int = int((elapsed_seconds / 60) % 60)
+	var hours:int = int(elapsed_seconds/ 60) / 60
 	
 	#returns a string with the format "HH:MM:SS"
 	return "%02d:%02d:%02d" % [hours, minutes, seconds]

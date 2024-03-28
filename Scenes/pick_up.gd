@@ -1,9 +1,8 @@
 extends Area2D
 
-@onready var sprite_2d = $Sprite2D
 @onready var sound = $sound
 @onready var animation_player = $AnimationPlayer
-@onready var collision_shape_2d = $CollisionShape2D
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 const PILL_1 = preload("res://assets/images/pill1.png")
 const PILL_2 = preload("res://assets/images/pill2.png")
@@ -16,9 +15,8 @@ var PU_IMAGE = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite_2d.texture = PU_IMAGE.pick_random()
-	pass # Replace with function body.
-
+	var frame_count = animated_sprite_2d.sprite_frames.get_frame_count(animated_sprite_2d.animation)
+	animated_sprite_2d.frame = randi_range(0, frame_count)
 
 
 func _on_body_entered(_body):

@@ -22,3 +22,6 @@ res://Scenes/hud.tscn
 res://Scenes/game_over_ui.tscn
 res://Scenes/scoreboard.tres
 res://Scenes/game_over_ui.gd
+res://Scenes/pick_up.tscn
+res://Scenes/hud_menu.gd
+res://Scenes/hud_menu.tscn

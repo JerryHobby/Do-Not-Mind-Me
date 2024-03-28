@@ -85,8 +85,8 @@ default_color = Color(0, 0, 1, 0.113725)
 
 [node name="Warning" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -32)
-scale = Vector2(0.1, 0.1)
+position = Vector2(0, -36)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_ntych")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

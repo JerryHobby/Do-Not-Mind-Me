@@ -9,6 +9,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	on_help()
 	set_labels()
 	SignalManager.on_debug.connect(set_labels)
 	SignalManager.on_music.connect(set_labels)

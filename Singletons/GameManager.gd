@@ -8,9 +8,11 @@ const GROUP_BULLET = "bullet"
 const GROUP_NPC = "npc"
 const GROUP_PICKUP = "pickup"
 
-const NPC_SPEED_PATROLLING:float = 60
-const NPC_SPEED_CHASING:float = 100
-const NPC_SPEED_SEARCHING:float = 80
+const PLAYER_SPEED:float = 250.0
+
+const NPC_SPEED_PATROLLING:float = 130
+const NPC_SPEED_CHASING:float = 160
+const NPC_SPEED_SEARCHING:float = 150
 
 const NPC_FOV_PATROLLING:float = 60
 const NPC_FOV_CHASING:float = 120
@@ -23,7 +25,6 @@ const NPC_SIGHT_RANGE_SEARCHING:float = 500.0
 const NPC_BULLET_SPEED:float = 400.0
 const NPC_SHOOT_DELAY:float = 1.75
 
-const PLAYER_SPEED:float = 150.0
 
 const TEST_MODE:bool = false
 
@@ -32,7 +33,7 @@ var _music:bool = false
 var _sound:bool = false
 var _god_mode:bool = false
 var _pause:bool = false
-var _help:bool = false
+var _help:bool = true
 
 
 #####
