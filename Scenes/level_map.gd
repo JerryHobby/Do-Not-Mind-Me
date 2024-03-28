@@ -19,6 +19,7 @@ func _ready():
 	SignalManager.on_level_complete.connect(on_level_complete)
 	SignalManager.on_player_died.connect(on_player_died)
 	
+	GameManager.set_god_mode(false)
 	_pickups = get_tree().get_nodes_in_group(GameManager.GROUP_PICKUP).size()
 	ScoreManager.reset()
 	
@@ -29,8 +30,10 @@ func _ready():
 func _process(_delta):
 	get_input()
 	if GameManager.get_pause() == false:
+		var old_elapsed_time = int(elapsed_time)
 		elapsed_time += _delta
-		SignalManager.on_elapsed_time.emit(elapsed_time)
+		if int(elapsed_time) > old_elapsed_time:
+			SignalManager.on_elapsed_time.emit(elapsed_time)
 
 
 func get_input() -> void:
@@ -54,8 +57,13 @@ func get_input() -> void:
 		GameManager.set_help(!GameManager.get_help())
 		
 	if Input.is_action_just_pressed("fire"):
+		if game_over_screen.visible == true:
+			GameManager.set_pause(false)
+			get_tree().change_scene_to_packed(GameManager.LEVEL_SCENE)
+
+	if Input.is_action_just_pressed("quit"):
 		GameManager.set_pause(false)
-		get_tree().change_scene_to_packed(GameManager.LEVEL_SCENE)
+		get_tree().change_scene_to_packed(GameManager.MAIN_SCENE)
 
 
 func on_pickup():
@@ -100,6 +108,8 @@ func on_level_complete(_level: int) -> void:
 
 
 func on_player_died() -> void:
+	if GameManager.get_god_mode():
+		return
 	GameManager.set_pause(true)
 	#await get_tree().create_timer(1).timeout
 	game_over_screen.show()

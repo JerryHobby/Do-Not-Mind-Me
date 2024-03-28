@@ -73,7 +73,7 @@ func _physics_process(_delta):
 	
 	if Input.is_action_pressed("set_target"):
 		set_state(ENEMY_STATE.CHASING)
-		
+	
 	raycast_to_player()
 	update_state()
 	update_movement()
@@ -92,6 +92,13 @@ func raycast_to_player() -> void:
 
 func set_nav_to_player() -> void:
 	nav_agent.target_position = _player_ref.global_position
+
+	#if nav_agent.distance_to_target() < 50:
+		#if GameManager.get_god_mode() == false:
+			#SignalManager.on_player_died.emit()
+
+	if nav_agent.distance_to_target() < 100:
+		nav_agent.target_position = global_position
 
 
 func alert(new_state) -> void:
@@ -113,7 +120,6 @@ func alert(new_state) -> void:
 
 
 func update_movement() -> void:
-
 	line_2d.default_color = BEAM_COLOR[_state]
 	match _state:
 		ENEMY_STATE.PATROLLING:
@@ -139,7 +145,6 @@ func process_searching() -> void:
 
 
 func set_state(new_state:ENEMY_STATE) -> void:
-
 	if new_state == _state:
 		return
 	

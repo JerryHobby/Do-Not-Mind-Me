@@ -1,8 +1,10 @@
 extends Node2D
+@onready var high_score = $CanvasLayer/VBoxContainer/HighScore
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	high_score.text = "High Score: %s" % ScoreManager.get_high_score()
 	pass # Replace with function body.
 
 

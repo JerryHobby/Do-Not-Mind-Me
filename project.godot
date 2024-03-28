@@ -20,6 +20,7 @@ config/icon="res://survivor1_gun.png"
 SignalManager="*res://Singletons/SignalManager.gd"
 SoundManager="*res://Singletons/SoundManager.gd"
 GameManager="*res://Singletons/GameManager.gd"
+DataStorage="*res://Singletons/DataStorage.gd"
 ScoreManager="*res://Singletons/ScoreManager.gd"
 
 [debug]
@@ -30,6 +31,7 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=1280
 window/size/viewport_height=800
+window/size/mode=2
 window/stretch/mode="viewport"
 
 [input]

@@ -1,10 +1,10 @@
+ColorRect
+Label
 Sprite2D
 HBoxContainer
 CanvasLayer
-ColorRect
 AnimatedSprite2D
 Node2D
-Label
 VBoxContainer
 MarginContainer
 Area2D

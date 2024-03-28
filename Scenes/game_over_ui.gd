@@ -2,6 +2,7 @@ extends Control
 @onready var score_label = $MarginContainer/VBoxContainer/ScoreLabel
 @onready var time_label = $MarginContainer/VBoxContainer/TimeLabel
 @onready var game_over = $MarginContainer/VBoxContainer/GameOver
+@onready var high_score_label = $MarginContainer/VBoxContainer/HighScoreLabel
 
 var _winner:bool = false
 var _elapsed_time:float = 0
@@ -19,6 +20,12 @@ func update_labels() -> void:
 
 	score_label.text = "SCORE: %s" % ScoreManager.get_score()
 	time_label.text = "TIME: %s" % seconds_to_string()
+	high_score_label.text = "High Score: %s" % ScoreManager.get_high_score()
+	
+	if ScoreManager.used_cheats():
+		var x = ScoreManager.used_cheats()
+		score_label.text += " (Using Cheats)"
+		
 	if _winner:
 		game_over.text = "You beat the game!"
 	else:

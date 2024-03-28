@@ -29,8 +29,8 @@ const NPC_SHOOT_DELAY:float = 1.75
 const TEST_MODE:bool = false
 
 var _debug:bool = false
-var _music:bool = false
-var _sound:bool = false
+var _music:bool = true
+var _sound:bool = true
 var _god_mode:bool = false
 var _pause:bool = false
 var _help:bool = true
