@@ -2,24 +2,19 @@ extends CanvasLayer
 
 @onready var score_label = $MarginContainer/HBoxContainer/ScoreLabel
 @onready var pickups_label = $MarginContainer/HBoxContainer/PickupsLabel
+@onready var time_label = $MarginContainer/HBoxContainer/TimeLabel
 
-var _pickups_total:int
+var _elapsed_time:float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_pickups_total = get_tree().get_nodes_in_group(GameManager.GROUP_PICKUP).size()
-	on_pickup(_pickups_total)
-	on_score_updated(0)
-	SignalManager.on_pickup.connect(on_pickup)
+	
+	on_score_updated(ScoreManager.get_score())
 	SignalManager.on_score_updated.connect(on_score_updated)
+	SignalManager.on_elapsed_time.connect(on_elapsed_time)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func on_pickup(remaining:int) -> void:
+func on_pickup_update(remaining:int) -> void:
 	if remaining:
 		pickups_label.text = "Remaining Bonuses: %s" % remaining
 	else:
@@ -28,3 +23,19 @@ func on_pickup(remaining:int) -> void:
 
 func on_score_updated(score:int) -> void:
 	score_label.text = "Score: %s" % score
+
+
+func on_elapsed_time(seconds:float) -> void:
+	_elapsed_time = seconds
+	time_label.text = "Time: %s" % seconds_to_string()
+
+
+func seconds_to_string() -> String:
+	var elapsed_seconds = int(_elapsed_time)
+	
+	var seconds = int(elapsed_seconds) % 60
+	var minutes = (elapsed_seconds / 60) % 60
+	var hours = (elapsed_seconds/ 60) / 60
+	
+	#returns a string with the format "HH:MM:SS"
+	return "%02d:%02d:%02d" % [hours, minutes, seconds]

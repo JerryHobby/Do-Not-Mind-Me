@@ -4,6 +4,7 @@ class_name Player
 
 @onready var camera_2d = $"../Camera2D"
 @onready var sound = $sound
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 
@@ -28,5 +29,10 @@ func get_input():
 	new_velocity.y = Input.get_action_strength("down") \
 	 - Input.get_action_strength("up")
 	
+	if velocity == Vector2.ZERO:
+		animated_sprite_2d.speed_scale = 0
+		animated_sprite_2d.frame = 1
+	else:
+		animated_sprite_2d.speed_scale = 1
+
 	velocity = new_velocity.normalized() * GameManager.PLAYER_SPEED * 2
-	

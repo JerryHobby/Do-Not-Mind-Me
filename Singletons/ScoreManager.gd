@@ -11,8 +11,8 @@ func bonus() -> void:
 	SignalManager.on_score_updated.emit(_score)
 
 
-func level(level:int) -> void:
-	_score += level * LEVEL_COMPLETE
+func level(current_level:int) -> void:
+	_score += current_level * LEVEL_COMPLETE
 	SignalManager.on_score_updated.emit(_score)
 
 
@@ -21,3 +21,10 @@ func npc_died() -> void:
 	SignalManager.on_score_updated.emit(_score)
 
 
+func get_score() -> int:
+	return _score
+
+
+func reset() -> void:
+	_score = 0
+	SignalManager.on_score_updated.emit(_score)

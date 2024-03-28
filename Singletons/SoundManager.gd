@@ -18,6 +18,8 @@ const GASP_3 = preload("res://assets/sounds/gasp3.wav")
 const SFX_EXP_MEDIUM_4 = preload("res://assets/sounds/sfx_exp_medium4.wav")
 const SFX_WPN_LASER_2 = preload("res://assets/sounds/sfx_wpn_laser2.wav")
 
+const TADA_FANFARE_A_6313 = preload("res://assets/sounds/winning/tada-fanfare-a-6313.mp3")
+const LOOP_013438_SYNTH_LOOP_2_57862 = preload("res://assets/sounds/music/loop-013438_synth-loop-2-57862.mp3")
 
 const POWER_UP = [
 	SFX_SOUNDS_POWERUP_1,
@@ -37,6 +39,7 @@ const GASP = [
 	GASP_3
 ]
 
+
 func play(sound:AudioStreamPlayer2D, audio ) -> void:
 	if GameManager.get_sound():
 		sound.stream = audio
@@ -53,7 +56,7 @@ func play_powerup(sound:AudioStreamPlayer2D) -> void:
 	play(sound, audio)
 
 
-func play_bullet(sound:AudioStreamPlayer2D) -> void:
+func play_boom(sound:AudioStreamPlayer2D) -> void:
 	var audio = SFX_EXP_MEDIUM_4
 	play(sound, audio)
 
@@ -62,4 +65,20 @@ func play_laser(sound:AudioStreamPlayer2D) -> void:
 	var audio = SFX_WPN_LASER_2
 	play(sound, audio)
 
+
+func play_win(sound:AudioStreamPlayer2D) -> void:
+	var audio = TADA_FANFARE_A_6313
+	play(sound, audio)
+
+
+func play_soundtrack(sound:AudioStreamPlayer) -> void:
+	var audio = LOOP_013438_SYNTH_LOOP_2_57862
+	sound.stream = audio
+
+	if GameManager.get_music():
+		sound.play()
+
+
+func stop(sound:AudioStreamPlayer2D) -> void:
+	sound.stop()
 

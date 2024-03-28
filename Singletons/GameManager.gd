@@ -1,5 +1,8 @@
 extends Node
 
+const LEVEL_SCENE:PackedScene = preload("res://Scenes/level_map.tscn")
+const MAIN_SCENE:PackedScene = preload("res://Scenes/main.tscn")
+
 const GROUP_PLAYER = "player"
 const GROUP_BULLET = "bullet"
 const GROUP_NPC = "npc"
@@ -17,12 +20,16 @@ const NPC_SIGHT_RANGE_PATROLLING:float = 300.0
 const NPC_SIGHT_RANGE_CHASING:float = 500.0
 const NPC_SIGHT_RANGE_SEARCHING:float = 500.0
 
+const NPC_BULLET_SPEED:float = 400.0
+const NPC_SHOOT_DELAY:float = 1.75
+
 const PLAYER_SPEED:float = 150.0
 
+const TEST_MODE:bool = false
 
-var _debug:bool = true
+var _debug:bool = false
 var _music:bool = false
-var _sound:bool = true
+var _sound:bool = false
 var _god_mode:bool = false
 var _pause:bool = false
 var _help:bool = false
@@ -93,9 +100,4 @@ func set_help(v:bool) -> void:
 	SignalManager.on_help.emit()
 	if _debug:
 		print("Help: ", _help)
-
-
-
-
-
 

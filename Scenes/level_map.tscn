@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bxcqn8jpko61x"]
+[gd_scene load_steps=37 format=3 uid="uid://bxcqn8jpko61x"]
 
 [ext_resource type="Script" path="res://Scenes/level_map.gd" id="1_4fagv"]
 [ext_resource type="Texture2D" uid="uid://d04vappetwfm5" path="res://assets/spritesheets/grass.png" id="1_ev0xq"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://i1p1mobao4pw" path="res://Scenes/Player/player.tscn" id="10_uajw1"]
 [ext_resource type="PackedScene" uid="uid://ctk2sgyyae5wq" path="res://Scenes/hud.tscn" id="11_nr7n2"]
 [ext_resource type="PackedScene" uid="uid://cjwpp2ry2ony7" path="res://Scenes/pick_up.tscn" id="12_khann"]
+[ext_resource type="PackedScene" uid="uid://cpo6tt1jof78x" path="res://Scenes/exit.tscn" id="14_gwj0s"]
+[ext_resource type="PackedScene" uid="uid://5tq0sq3lj3wr" path="res://Scenes/game_over_ui.tscn" id="15_ek1qq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkl03"]
 resource_name = "Grass"
@@ -1370,3 +1372,46 @@ position = Vector2(3353, 2599)
 
 [node name="PickUp100" parent="Pickups" instance=ExtResource("12_khann")]
 position = Vector2(3200, 2206)
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
+[node name="Exit" parent="." instance=ExtResource("14_gwj0s")]
+process_mode = 4
+visible = false
+position = Vector2(101, 161)
+
+[node name="ExitPoints" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="ExitPoints"]
+position = Vector2(298, 317)
+
+[node name="Marker2D2" type="Marker2D" parent="ExitPoints"]
+position = Vector2(2443, 418)
+
+[node name="Marker2D3" type="Marker2D" parent="ExitPoints"]
+position = Vector2(2411, 1500)
+
+[node name="Marker2D4" type="Marker2D" parent="ExitPoints"]
+position = Vector2(4483, 2664)
+
+[node name="Marker2D5" type="Marker2D" parent="ExitPoints"]
+position = Vector2(4007, 733)
+
+[node name="Marker2D6" type="Marker2D" parent="ExitPoints"]
+position = Vector2(646, 2730)
+
+[node name="Marker2D7" type="Marker2D" parent="ExitPoints"]
+position = Vector2(3267, 2657)
+
+[node name="ExitPointsTests" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="ExitPointsTests"]
+position = Vector2(159, 217)
+
+[node name="Marker2D2" type="Marker2D" parent="ExitPointsTests"]
+position = Vector2(159, 415)
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="GameOverUI" parent="GameOverScreen" instance=ExtResource("15_ek1qq")]

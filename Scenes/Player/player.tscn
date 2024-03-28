@@ -1,21 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://i1p1mobao4pw"]
+[gd_scene load_steps=9 format=3 uid="uid://i1p1mobao4pw"]
 
 [ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_7hu1f"]
 [ext_resource type="Texture2D" uid="uid://etiatwqnq16n" path="res://assets/images/survivor1_gun.png" id="1_fw6vr"]
+[ext_resource type="Texture2D" uid="uid://khavwgrqpi5c" path="res://assets/spritesheets/spy.png" id="2_flgs2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35v3b"]
+atlas = ExtResource("2_flgs2")
+region = Rect2(0, 0, 127, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n86w4"]
+atlas = ExtResource("2_flgs2")
+region = Rect2(127, 0, 127, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8yds"]
+atlas = ExtResource("2_flgs2")
+region = Rect2(254, 0, 127, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qoyyr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35v3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n86w4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8yds")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jbjcg"]
+radius = 8.23529
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 9
 script = ExtResource("1_7hu1f")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -1)
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_qoyyr")
+autoplay = "default"
+frame = 1
+speed_scale = 2.08165e-12
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(9, 0)
 texture = ExtResource("1_fw6vr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.7, 1.7)
+scale = Vector2(1.47001, 2.30078)
 shape = SubResource("CircleShape2D_jbjcg")
 
 [node name="sound" type="AudioStreamPlayer2D" parent="."]

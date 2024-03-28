@@ -9,11 +9,14 @@ class_name Npc
 @onready var animation_player = $AnimationPlayer
 
 @export var patrol_points:NodePath
+
 @onready var player_detector = $PlayerDetector
 @onready var line_2d = $PlayerDetector/Line2D
 @onready var ray_cast_2d = $PlayerDetector/RayCast2D
 @onready var sound = $sound
+@onready var shoot_timer = $ShootTimer
 
+const BULLET = preload("res://Scenes/bullet.tscn")
 enum ENEMY_STATE { PATROLLING, CHASING, SEARCHING}
 
 
@@ -50,6 +53,9 @@ var _state:ENEMY_STATE = ENEMY_STATE.PATROLLING
 func _ready():
 	set_physics_process(false)
 	create_waypoints()
+	
+	shoot_timer.wait_time = GameManager.NPC_SHOOT_DELAY
+	shoot_timer.start()
 	_player_ref = get_tree().get_first_node_in_group(GameManager.GROUP_PLAYER)
 	call_deferred("set_physics_process", true)
 	SignalManager.on_debug.connect(on_debug)
@@ -226,3 +232,18 @@ func set_labels() -> void:
 	debug_label.text(3, reached)
 	debug_label.text(4, fov)
 
+
+func shoot() -> void:
+	var target = _player_ref.global_position
+	
+	var bullet = BULLET.instantiate()
+	bullet.setup(target, global_position)
+	get_tree().root.add_child(bullet)
+	SoundManager.play_laser(sound)
+
+
+func _on_shoot_timer_timeout():
+	if _state != ENEMY_STATE.CHASING:
+		return
+	
+	shoot()

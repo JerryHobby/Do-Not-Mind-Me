@@ -37,9 +37,18 @@ text = "Score: 00000"
 label_settings = SubResource("LabelSettings_skmad")
 vertical_alignment = 1
 
+[node name="TimeLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Elapsed Time: 00:00"
+label_settings = SubResource("LabelSettings_skmad")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PickupsLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "pickups"
 label_settings = SubResource("LabelSettings_skmad")
 horizontal_alignment = 2
 vertical_alignment = 1

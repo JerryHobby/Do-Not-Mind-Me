@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://5tq0sq3lj3wr"]
+
+[ext_resource type="Script" path="res://Scenes/game_over_ui.gd" id="1_36jbg"]
+[ext_resource type="FontFile" uid="uid://b2dascen23qld" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="1_rn2qi"]
+[ext_resource type="LabelSettings" uid="uid://0khn8vhdmffy" path="res://Scenes/scoreboard.tres" id="2_spoej"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4i4q0"]
+font = ExtResource("1_rn2qi")
+font_size = 120
+font_color = Color(1, 0.235294, 0.470588, 1)
+outline_size = 17
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ivla"]
+font = ExtResource("1_rn2qi")
+font_size = 50
+font_color = Color(1, 0.784314, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOverUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36jbg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.207843, 0.521569)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.5
+offset_top = -102.0
+offset_right = 150.5
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GameOver" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_4i4q0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressFire" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press SPACE to Retry"
+label_settings = SubResource("LabelSettings_5ivla")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+
+"
+label_settings = SubResource("LabelSettings_5ivla")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your Score is 0000"
+label_settings = ExtResource("2_spoej")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Time Taken: 0000 seconds"
+label_settings = ExtResource("2_spoej")
+horizontal_alignment = 1
+vertical_alignment = 1

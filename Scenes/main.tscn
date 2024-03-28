@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn3ppmboiooc3"]
+
+[ext_resource type="PackedScene" uid="uid://ctk2sgyyae5wq" path="res://Scenes/hud.tscn" id="1_f6u3y"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_vj2eh"]
+[ext_resource type="FontFile" uid="uid://b2dascen23qld" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_re366"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eykvi"]
+font = ExtResource("2_re366")
+font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_jto66"]
+font = ExtResource("2_re366")
+font_size = 60
+font_color = Color(1, 0.494118, 0.521569, 1)
+
+[node name="Main" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_vj2eh")
+
+[node name="hud" parent="." instance=ExtResource("1_f6u3y")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_right = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_eykvi")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+text = "Press Space to Play Again"
+label_settings = SubResource("LabelSettings_jto66")
+horizontal_alignment = 1

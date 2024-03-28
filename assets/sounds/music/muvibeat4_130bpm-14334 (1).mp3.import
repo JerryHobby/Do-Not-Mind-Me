@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j2vxmg140bf1"
+path="res://.godot/imported/muvibeat4_130bpm-14334 (1).mp3-12de1acef5e631d81273eee2c7365d68.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/muvibeat4_130bpm-14334 (1).mp3"
+dest_files=["res://.godot/imported/muvibeat4_130bpm-14334 (1).mp3-12de1acef5e631d81273eee2c7365d68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
