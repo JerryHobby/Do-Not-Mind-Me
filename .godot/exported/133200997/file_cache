@@ -1,0 +1,15 @@
+res://Scenes/Enemies/npc.tscn::132d254310f3b4225d6b43fc5fc5b154::1711667827::res://.godot/exported/133200997/export-98ee8669483fef81214c3034d607d43d-npc.scn
+res://Scenes/Player/player.tscn::0e2ece7cf6ea8fde47076944c331669c::1711640211::res://.godot/exported/133200997/export-8e63b53a88b650cb9792f8d8b6d332bc-player.scn
+res://Scenes/boom.tscn::930bafb289664c79ad95a7c6566f5a40::1711640211::res://.godot/exported/133200997/export-d56313d7d8ad978a5d82f1b520883295-boom.scn
+res://Scenes/bullet.tscn::ff113a0f873218be0d04a6ad2ac10e8f::1711640211::res://.godot/exported/133200997/export-ebb3521b4f0ab2fc80eef1183e18e924-bullet.scn
+res://Scenes/debug_label.tscn::efd914afbc917bdb7b866d86c3bbfd82::1711239143::res://.godot/exported/133200997/export-9ff0d59df7064f972978991944c337c0-debug_label.scn
+res://Scenes/exit.tscn::bbaa74ad086bd8a65fa8b74c0aa682cc::1711513746::res://.godot/exported/133200997/export-d779942071c8d86e2e5a7d074f7a0cff-exit.scn
+res://Scenes/game_over_ui.tscn::e6c1d780546a45d86e57e5c612f9715b::1711667826::res://.godot/exported/133200997/export-707a544cbf25a467297bbe88ef2b5087-game_over_ui.scn
+res://Scenes/hud.tscn::a02bedb47140420786b50daef4bf6b9d::1711640561::res://.godot/exported/133200997/export-885e17d6a23b453de5b281f1a900d8bb-hud.scn
+res://Scenes/hud_menu.tscn::d0d39368c59a5816c80391d4e952e688::1711640561::res://.godot/exported/133200997/export-953d02079f4cf0329329dba09ac3e736-hud_menu.scn
+res://Scenes/level_map.tscn::5eafee630d5d73aecb744e9b41bb7a3d::1711670052::res://.godot/exported/133200997/export-4fdf5905aae3102f2ea6a88054d26725-level_map.scn
+res://Scenes/main.tscn::2d062e1fac363aa128ffae368c9e6e4a::1711667826::res://.godot/exported/133200997/export-2ddd04d543d5858e7f20c9299a8b5096-main.scn
+res://Scenes/pick_up.tscn::a66dc7372b672ecedff3ab2bba170d3d::1711644565::res://.godot/exported/133200997/export-05e8195b59b67ddba774a04a4501e8d7-pick_up.scn
+res://Scenes/scoreboard.tres::c1c4e1dd69cd3cf96641b09bd14ebdd0::1711583463::res://.godot/exported/133200997/export-ea00cbebcdf425f216effd3828f3053b-scoreboard.res
+res://Scenes/waypoint.tscn::54ea822a99a17f7daf235c1994446a8a::1711309819::res://.godot/exported/133200997/export-ec9f390284f4d55ce170fdd7617f569b-waypoint.scn
+res://debug_label.tres::2ff3b50e5f38e729a9d3dccae76b6166::1711541815::res://.godot/exported/133200997/export-0eec9a4b90c9463092bb74ce1f2c4e85-debug_label.res
