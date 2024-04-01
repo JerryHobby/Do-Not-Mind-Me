@@ -11,7 +11,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -150.0
-offset_bottom = 120.0
+offset_bottom = 151.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 color = Color(0, 0, 0, 0.4)
@@ -61,5 +61,11 @@ vertical_alignment = 1
 [node name="HelpLabel" type="Label" parent="ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "(H)ide Menu"
+label_settings = ExtResource("2_2ba7d")
+vertical_alignment = 1
+
+[node name="ResetHighScore" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "(R)eset High Score"
 label_settings = ExtResource("2_2ba7d")
 vertical_alignment = 1

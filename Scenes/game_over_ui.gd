@@ -14,20 +14,26 @@ func _ready():
 	SignalManager.on_score_updated.connect(on_score_updated)
 	SignalManager.on_level_complete.connect(on_level_complete)
 	SignalManager.on_elapsed_time.connect(on_elapsed_time)
+	SignalManager.on_high_score_updated.connect(on_high_score_updated)
+
+
+func _process(delta):
+	if Input.is_action_just_pressed("reset_high_score"):
+		ScoreManager.reset_high_score()
 
 
 func update_labels() -> void:
 
 	score_label.text = "SCORE: %s" % ScoreManager.get_score()
 	time_label.text = "TIME: %s" % seconds_to_string()
-	high_score_label.text = "High Score: %s" % ScoreManager.get_high_score()
+	on_high_score_updated(ScoreManager.get_high_score())
 	
 	if ScoreManager.used_cheats():
 		var x = ScoreManager.used_cheats()
 		score_label.text += " (Using Cheats)"
 		
 	if _winner:
-		game_over.text = "You beat the game!"
+		game_over.text = "You beat level %s\nKeep Going!" % GameManager.get_level()
 	else:
 		game_over.text = "GAME OVER"
 
@@ -38,6 +44,7 @@ func on_score_updated(_v:int):
 
 func on_level_complete(_level):
 	_winner = true
+	ScoreManager.time_bonus(_elapsed_time)
 	update_labels()
 
 
@@ -55,3 +62,8 @@ func seconds_to_string() -> String:
 	
 	#returns a string with the format "HH:MM:SS"
 	return "%02d:%02d:%02d" % [hours, minutes, seconds]
+
+
+
+func on_high_score_updated(score:int):
+	high_score_label.text = "High Score: %s" % ScoreManager.get_high_score()

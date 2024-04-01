@@ -22,7 +22,7 @@ func on_pickup_update(remaining:int) -> void:
 
 
 func on_score_updated(score:int) -> void:
-	score_label.text = "Score: %s" % score
+	score_label.text = "Score: %s - LEVEL %s" % [score, GameManager.get_level()]
 
 
 func on_elapsed_time(seconds:float) -> void:

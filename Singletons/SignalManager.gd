@@ -11,5 +11,6 @@ signal on_player_died
 signal on_elapsed_time(seconds: float)
 
 signal on_score_updated(score:int)
+signal on_high_score_updated(score:int)
 signal on_level_complete(level:int)
 

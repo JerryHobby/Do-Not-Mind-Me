@@ -1,4 +1,16 @@
 res://Scenes/main.tscn
+res://Scenes/game_over_ui.gd
+res://Scenes/level_map.gd
 res://Scenes/game_over_ui.tscn
 res://Scenes/level_map.tscn
 res://Scenes/Enemies/npc.tscn
+res://Scenes/main.gd
+res://Singletons/GameManager.gd
+res://Singletons/ScoreManager.gd
+res://Scenes/Enemies/npc.gd
+res://Scenes/bullet.gd
+res://Scenes/Player/player.gd
+res://Scenes/hud.gd
+res://Scenes/hud.tscn
+res://Scenes/hud_menu.tscn
+res://Singletons/SignalManager.gd

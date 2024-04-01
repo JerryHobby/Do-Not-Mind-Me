@@ -21,7 +21,7 @@ func _ready():
 	
 	GameManager.set_god_mode(false)
 	_pickups = get_tree().get_nodes_in_group(GameManager.GROUP_PICKUP).size()
-	ScoreManager.reset()
+	#ScoreManager.reset()
 	
 	hud.on_pickup_update(_pickups)
 	on_music()
@@ -58,8 +58,8 @@ func get_input() -> void:
 		
 	if Input.is_action_just_pressed("fire"):
 		if game_over_screen.visible == true:
-			GameManager.set_pause(false)
-			get_tree().change_scene_to_packed(GameManager.LEVEL_SCENE)
+			GameManager.next_level()
+
 
 	if Input.is_action_just_pressed("quit"):
 		GameManager.set_pause(false)
@@ -103,7 +103,6 @@ func on_music() -> void:
 
 func on_level_complete(_level: int) -> void:
 	GameManager.set_pause(true)
-	#await get_tree().create_timer(1).timeout
 	game_over_screen.show()
 
 
@@ -111,6 +110,5 @@ func on_player_died() -> void:
 	if GameManager.get_god_mode():
 		return
 	GameManager.set_pause(true)
-	#await get_tree().create_timer(1).timeout
 	game_over_screen.show()
 

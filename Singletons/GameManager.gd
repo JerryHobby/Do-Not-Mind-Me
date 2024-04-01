@@ -1,7 +1,15 @@
 extends Node
 
+const TEST_MODE:bool = false
+var _music:bool = !TEST_MODE
+var _sound:bool = !TEST_MODE
+
+
 const LEVEL_SCENE:PackedScene = preload("res://Scenes/level_map.tscn")
 const MAIN_SCENE:PackedScene = preload("res://Scenes/main.tscn")
+
+
+const LEVEL_DIFFICULTY_BOOST:float = 0.05
 
 const GROUP_PLAYER = "player"
 const GROUP_BULLET = "bullet"
@@ -25,15 +33,16 @@ const NPC_SIGHT_RANGE_SEARCHING:float = 500.0
 const NPC_BULLET_SPEED:float = 400.0
 const NPC_SHOOT_DELAY:float = 1.75
 
-
-const TEST_MODE:bool = false
-
 var _debug:bool = false
-var _music:bool = true
-var _sound:bool = true
 var _god_mode:bool = false
 var _pause:bool = false
 var _help:bool = true
+var _level:int = 1
+
+var _winner:bool = false
+
+func _ready():
+	SignalManager.on_level_complete.connect(on_level_complete)
 
 
 #####
@@ -43,6 +52,7 @@ func set_debug(v:bool) -> void:
 
 func get_debug() -> bool:
 	return _debug
+
 
 #####
 func get_music() -> bool:
@@ -102,3 +112,29 @@ func set_help(v:bool) -> void:
 	if _debug:
 		print("Help: ", _help)
 
+
+func set_level(v:int) -> void:
+	_level = v
+	_winner = false
+	
+	if _level == 1:
+		ScoreManager.reset()
+
+
+func get_level() -> int:
+	return _level
+
+
+func next_level() -> void:
+	GameManager.set_pause(false)
+	
+	if _winner:
+		set_level(_level + 1)
+	else:
+		set_level(1)
+	
+	get_tree().change_scene_to_packed(GameManager.LEVEL_SCENE)
+
+
+func on_level_complete(v:int) -> void:
+	_winner = true

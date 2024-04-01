@@ -5,9 +5,12 @@ var _direction_of_travel:Vector2 = Vector2.ZERO
 var _target_position:Vector2 = Vector2.ZERO
 @onready var timer = $Timer
 
+var _speed:float = GameManager.NPC_BULLET_SPEED
 
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
+	adjust_game_speed()
 	look_at(_target_position)
 
 
@@ -17,9 +20,18 @@ func setup(target:Vector2, start_pos:Vector2):
 	global_position = start_pos
 
 
+
+func adjust_game_speed() -> void:
+	var level =  GameManager.get_level() - 1
+	var boost = GameManager.LEVEL_DIFFICULTY_BOOST * level
+
+	_speed *= (1 + boost)
+
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += GameManager.NPC_BULLET_SPEED * delta * _direction_of_travel
+	position += _speed * delta * _direction_of_travel
 
 
 func _on_body_entered(_body):

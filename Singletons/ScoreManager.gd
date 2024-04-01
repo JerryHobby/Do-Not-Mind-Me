@@ -3,7 +3,11 @@ extends Node
 var _score:int = 0
 var _high_score:int = 0
 
-const BONUS:int = 100
+const BONUS_PICKUP:int = 100
+
+const BONUS_PER_SECOND:int = 10
+const BONUS_TIME_LIMIT:int = 600
+
 const LEVEL_COMPLETE = 5000
 const NPC_KILLED = 1000
 
@@ -15,7 +19,7 @@ func _ready():
 
 
 func bonus() -> void:
-	add_to_score(BONUS)
+	add_to_score(BONUS_PICKUP)
 
 
 func level(current_level:int) -> void:
@@ -33,6 +37,7 @@ func get_score() -> int:
 func reset() -> void:
 	_score = 0
 	_cheats_used = false
+	
 	GameManager.set_god_mode(false)
 	SignalManager.on_score_updated.emit(_score)
 
@@ -43,7 +48,7 @@ func on_god_mode():
 
 
 func add_to_score(score:int) -> void:
-	_score += score
+	_score += score * level_bonus()
 	set_high_score()
 	
 	SignalManager.on_score_updated.emit(_score)
@@ -57,7 +62,14 @@ func set_high_score() -> void:
 	save_high_score()
 
 
+func reset_high_score() -> void:
+	_high_score = 0
+	SignalManager.on_high_score_updated.emit(_high_score)
+	DataStorage.reset_high_score()
+
+
 func save_high_score():
+	SignalManager.on_high_score_updated.emit(_high_score)
 	DataStorage.save_data()
 
 
@@ -73,3 +85,18 @@ func get_high_score() -> int:
 	return DataStorage.get_high_score()
 
 
+func level_bonus() -> int:
+	return 1 + (GameManager.get_level() * 0.20)
+
+
+func time_bonus(seconds:int) -> int:
+	var time_bonus_limit = BONUS_TIME_LIMIT
+	var bonus_per_sec = BONUS_PER_SECOND * GameManager.get_level()
+	var bonus_time = time_bonus_limit - seconds
+	var bonus = 0
+	
+	if bonus_time > 0:
+		bonus = bonus_time * bonus_per_sec
+		add_to_score(bonus)
+
+	return bonus

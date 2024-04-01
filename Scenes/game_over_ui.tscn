@@ -6,7 +6,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_4i4q0"]
 font = ExtResource("1_rn2qi")
-font_size = 120
+font_size = 100
 font_color = Color(1, 0.235294, 0.470588, 1)
 outline_size = 17
 
@@ -66,7 +66,7 @@ vertical_alignment = 1
 
 [node name="PressFire" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Press SPACE to Retry"
+text = "Press SPACE to Play"
 label_settings = SubResource("LabelSettings_5ivla")
 horizontal_alignment = 1
 vertical_alignment = 1

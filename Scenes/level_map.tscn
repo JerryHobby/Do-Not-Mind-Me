@@ -1086,7 +1086,7 @@ position = Vector2(155, 316)
 position = Vector2(96, 316)
 
 [node name="PickUp5" parent="Pickups" instance=ExtResource("12_khann")]
-position = Vector2(377, 95)
+position = Vector2(349, 96)
 
 [node name="PickUp6" parent="Pickups" instance=ExtResource("12_khann")]
 position = Vector2(990, 534)
@@ -1110,13 +1110,13 @@ position = Vector2(287, 1056)
 position = Vector2(215, 1124)
 
 [node name="PickUp13" parent="Pickups" instance=ExtResource("12_khann")]
-position = Vector2(287, 1193)
+position = Vector2(287, 1183)
 
 [node name="PickUp14" parent="Pickups" instance=ExtResource("12_khann")]
 position = Vector2(218, 1250)
 
 [node name="PickUp15" parent="Pickups" instance=ExtResource("12_khann")]
-position = Vector2(291, 1316)
+position = Vector2(286, 1311)
 
 [node name="PickUp16" parent="Pickups" instance=ExtResource("12_khann")]
 position = Vector2(1057, 1055)
@@ -1125,7 +1125,7 @@ position = Vector2(1057, 1055)
 position = Vector2(1186, 1059)
 
 [node name="PickUp18" parent="Pickups" instance=ExtResource("12_khann")]
-position = Vector2(1425, 1058)
+position = Vector2(810, 683)
 
 [node name="PickUp19" parent="Pickups" instance=ExtResource("12_khann")]
 position = Vector2(1425, 1494)
@@ -1290,10 +1290,10 @@ position = Vector2(3799, 2016)
 position = Vector2(3966, 2016)
 
 [node name="PickUp73" parent="Pickups" instance=ExtResource("12_khann")]
-position = Vector2(4863, 1474)
+position = Vector2(4883, 1453)
 
 [node name="PickUp74" parent="Pickups" instance=ExtResource("12_khann")]
-position = Vector2(4605, 1474)
+position = Vector2(4603, 1452)
 
 [node name="PickUp75" parent="Pickups" instance=ExtResource("12_khann")]
 position = Vector2(4319, 1765)
@@ -1356,7 +1356,7 @@ position = Vector2(3432, 297)
 position = Vector2(4248, 297)
 
 [node name="PickUp95" parent="Pickups" instance=ExtResource("12_khann")]
-position = Vector2(4611, 483)
+position = Vector2(4611, 477)
 
 [node name="PickUp96" parent="Pickups" instance=ExtResource("12_khann")]
 position = Vector2(4902, 88)

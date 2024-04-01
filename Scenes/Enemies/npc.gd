@@ -21,6 +21,8 @@ enum ENEMY_STATE { PATROLLING, CHASING, SEARCHING}
 
 var _first_pass = true
 
+var _level_boost = 1
+
 var FOV = {
 	ENEMY_STATE.PATROLLING: GameManager.NPC_FOV_PATROLLING,
 	ENEMY_STATE.CHASING: GameManager.NPC_FOV_CHASING,
@@ -54,6 +56,7 @@ var _state:ENEMY_STATE = ENEMY_STATE.PATROLLING
 func _ready():
 	set_physics_process(false)
 	call_deferred("create_waypoints")
+	adjust_game_speed()
 
 	shoot_timer.wait_time = GameManager.NPC_SHOOT_DELAY
 	shoot_timer.start()
@@ -216,9 +219,19 @@ func update_navigation() -> void:
 		
 	var next_path_position:Vector2 = nav_agent.get_next_path_position()
 	sprite_2d.look_at(next_path_position)
+	
+
 	velocity = global_position.direction_to(next_path_position) * SPEED[_state]
 
 	move_and_slide()
+
+
+func adjust_game_speed() -> void:
+	var level =  GameManager.get_level() - 1
+	var boost = GameManager.LEVEL_DIFFICULTY_BOOST * level
+
+	for key in SPEED:
+		SPEED[key] *= (1 + boost)
 
 
 func on_debug() -> void:

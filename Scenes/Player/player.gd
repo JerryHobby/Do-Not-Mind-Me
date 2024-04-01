@@ -6,10 +6,17 @@ class_name Player
 @onready var sound = $sound
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-
+var _speed = GameManager.PLAYER_SPEED
 
 func _ready():
-	pass
+	adjust_game_speed()
+	
+
+func adjust_game_speed() -> void:
+	var level =  GameManager.get_level() - 1
+	var boost = GameManager.LEVEL_DIFFICULTY_BOOST * level
+
+	_speed *= (1 + (boost * 0.8))
 
 
 func _physics_process(_delta):
@@ -35,4 +42,4 @@ func get_input():
 	else:
 		animated_sprite_2d.speed_scale = 1
 
-	velocity = new_velocity.normalized() * GameManager.PLAYER_SPEED
+	velocity = new_velocity.normalized() * _speed
